@@ -7,6 +7,7 @@ services:
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - ./certs:/etc/nginx/certs:ro
+      - diamond_frontend:/app/diamond-frontend:ro
     networks:
       - web-network
     restart: always
@@ -28,3 +29,6 @@ networks:
 
 volumes:
   db_data:
+  diamond_frontend:
+    external: true
+    name: diamond-inventory_frontend_dist
